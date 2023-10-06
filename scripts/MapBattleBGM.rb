@@ -19,7 +19,7 @@ module UNITATEM module MapBattleBGM
     #==============================================================================
     # # SETTINGS
     # -----------------------------------------------------------------------------
-    MAP_BATTLE_BGM_STR = /<(?:BATTLE BGM|battle bgm):[ ](.*)>/i
+    MAP_BATTLE_BGM_STR = /<(?:BATTLE_BGM|battle bgm):[ ](.*)>/i
     VOLUME = 75
     PITCH = 100
     end end
