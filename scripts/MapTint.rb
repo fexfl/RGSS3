@@ -93,7 +93,6 @@ module UNITATEM module MapTint
       alias perform_transfer_mt perform_transfer
       def perform_transfer
         perform_transfer_mt
-        $game_message.add("Test")
         $game_map.screen.start_tone_change($game_map.get_map_tint, UNITATEM::MapTint::DURATION)
       end
     end
