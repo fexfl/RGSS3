@@ -8,7 +8,7 @@ module UNITATEM module SmallChoiceList
     # # Introduction
     #
     # Adds a smaller version of the Choice List Window, mostly used for confirmation
-    # buttons with a single option consisting on a single icon (as a continue button)
+    # buttons with a single option with a single icon (as a confirmation button)
     # 
     #==============================================================================
     # # Usage
@@ -30,11 +30,6 @@ module UNITATEM module SmallChoiceList
     # Importing the script
     #------------------------------------------------------------------------------
     $imported = {} if $imported.nil? ; $imported[:UNITATEM_SMALLCHOICELIST] = true
-    #==============================================================================
-    # ** Window_ChoiceList
-    #------------------------------------------------------------------------------
-    #  This window is used for the event command [Show Choices].
-    #==============================================================================
     
     #==============================================================================
     # ** Window_SmallChoiceList
@@ -131,13 +126,13 @@ module UNITATEM module SmallChoiceList
     #==============================================================================
     class Game_Message
       #--------------------------------------------------------------------------
-      # accessors
+      # * accessors and readers
       #--------------------------------------------------------------------------
       attr_reader   :small_choices
       attr_accessor :small_choice_proc
       attr_accessor :small_choice_cancel_type
       #--------------------------------------------------------------------------
-      # alias method: Clear
+      # * alias method: Clear
       #--------------------------------------------------------------------------
       alias clear_scl clear
       def clear
@@ -147,13 +142,13 @@ module UNITATEM module SmallChoiceList
         @small_choice_proc = nil
       end
       #--------------------------------------------------------------------------
-      # new method: small_choice?
+      # * new method: small_choice?
       #--------------------------------------------------------------------------
       def small_choice?
         @small_choices.size > 0
       end
       #--------------------------------------------------------------------------
-      # alias method: busy?
+      # * alias method: busy?
       #--------------------------------------------------------------------------
       alias busy_scl busy?
       def busy?
@@ -168,7 +163,7 @@ module UNITATEM module SmallChoiceList
     #==============================================================================
     class Game_Interpreter
       #--------------------------------------------------------------------------
-      # new method: setup_small_choices
+      # * new method: setup_small_choices
       #--------------------------------------------------------------------------
       def setup_small_choices(params)
         params[0].each {|s| $game_message.small_choices.push(s) }
@@ -184,7 +179,7 @@ module UNITATEM module SmallChoiceList
     #==============================================================================
     class Window_Message < Window_Base
       #--------------------------------------------------------------------------
-      # alias method: create_all_windows
+      # * alias method: create_all_windows
       #--------------------------------------------------------------------------
       alias create_all_windows_scl create_all_windows
       def create_all_windows
@@ -192,7 +187,7 @@ module UNITATEM module SmallChoiceList
         @small_choice_window = Window_SmallChoiceList.new(self)
       end
       #--------------------------------------------------------------------------
-      # alias method: dispose_all_windows
+      # * alias method: dispose_all_windows
       #--------------------------------------------------------------------------
       alias dispose_all_windows_scl dispose_all_windows
       def dispose_all_windows
@@ -200,7 +195,7 @@ module UNITATEM module SmallChoiceList
         @small_choice_window.dispose
       end
       #--------------------------------------------------------------------------
-      # alias method: update_all_windows
+      # * alias method: update_all_windows
       #--------------------------------------------------------------------------
       alias update_all_windows_scl update_all_windows
       def update_all_windows
@@ -208,7 +203,7 @@ module UNITATEM module SmallChoiceList
         @small_choice_window.update
       end
       #--------------------------------------------------------------------------
-      # alias method: process_input
+      # * alias method: process_input
       #--------------------------------------------------------------------------
       alias process_input_scl process_input
       def process_input
@@ -219,7 +214,7 @@ module UNITATEM module SmallChoiceList
         end
       end
       #--------------------------------------------------------------------------
-      # alias method: all_close?
+      # * alias method: all_close?
       #--------------------------------------------------------------------------
       alias all_close_scl all_close?
       def all_close?
@@ -227,7 +222,7 @@ module UNITATEM module SmallChoiceList
         all_close_scl
       end
       #--------------------------------------------------------------------------
-      # new method: input_small_choice
+      # * new method: input_small_choice
       #--------------------------------------------------------------------------
       def input_small_choice
         @small_choice_window.start
